@@ -57,7 +57,9 @@ function notAuthorized() {
 
     function logIn(event) {
         event.preventDefault();
-        login = loginInput.value;
+
+        if (loginInput.value) {
+          login = loginInput.value;
         //записываем введеные данные, чтобы при перезагрузке данные со тсраницы не стирались 
         localStorage.setItem('gloDelivery', login);
 
@@ -67,6 +69,12 @@ function notAuthorized() {
         logInForm.removeEventListener('submit', logIn);
         logInForm.reset();
         checkAuth();
+        } else 
+        {
+          loginInput.style.borderColor = 'red';
+        }
+
+        
 
         
       
